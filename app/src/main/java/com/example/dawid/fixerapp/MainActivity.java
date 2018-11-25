@@ -144,11 +144,7 @@ public class MainActivity extends AppCompatActivity implements CurrAdapter.ListI
                 String currencyName = currencyNames.getString(i);
                 double currencyValue = currencyRates.getDouble(currencyName);
 
-//                Rounding to 4 decimal places
-                DecimalFormat df = new DecimalFormat("#.####");
-                String strCurrencyValue = df.format(currencyValue);
-
-                currencyList.add(new CurrencyItem(currencyName, strCurrencyValue, strCurrencyDate));
+                currencyList.add(new CurrencyItem(currencyName, String.format("%.4f", currencyValue), strCurrencyDate));
             }
 
         } catch (JSONException e) {
